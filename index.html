@@ -29,21 +29,37 @@
             <img src="./img/logo.png" alt="DVC">
         </header>
 
+        <!-- INSERT NEW TODO -->
         <section class="new-todo">
             <input 
                 type="text"
                 placeholder="Nuova attività"
+                v-model.trim="newTodo"
+                @keyup.enter="addTodo"
+                ref="todoInput"
             />
-            <button>Aggiungi</button>
+            <button @click="addTodo">Aggiungi</button>
         </section>
 
+        <!-- TODO LIST -->
         <section class="todos-container">
-            <ul>
-                <li class="todo" v-for="todo in todos">
-                    <span class="text">{{ todo.text }}</span>
-                    <i class="fas fa-times"></i>
+            <ul v-if="todos.length > 0">
+                <li class="todo" v-for="(todo, index) in todos">
+                    <span class="text"
+                        :class="{completed: todo.completed}"
+                        @click="updateStatus(index)"
+                    >
+                        {{ todo.text }}
+                    </span>
+
+                    <i class="fas fa-times"
+                        @click="removeTodo(index)"
+                    ></i>
                 </li>
             </ul>
+
+            <!-- NO TODO -->
+            <h2 v-else>Non ci sono attività da fare</h2> 
         </section>
     </div>
     

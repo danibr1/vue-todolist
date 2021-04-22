@@ -9,7 +9,7 @@ const app = new Vue({
         // DEFAUL TODOLIST
         todos: [
             {
-                text: 'Chimare avv. Salvini per pratica 1213',
+                text: 'Chimare avv. Salvini per sinistro n. 2020.05561.0005',
                 completed: false,
             },
             {
@@ -18,6 +18,10 @@ const app = new Vue({
             },
             {
                 text: 'Firmare bilancio',
+                completed: false,
+            },
+            {
+                text: 'Liquidare sinistro n. 2020.01651.15156',
                 completed: false,
             },
         ],
@@ -39,15 +43,15 @@ const app = new Vue({
             }
         },
 
-         // REMOVE TODO
+        
+        // REMOVE TODO
         removeTodo(index) {
             this.todos.splice(index, 1);
         },
-
+        
         // UPDATE TODOS
         updateStatus(index) {
-            this.todos[index].completed = ! this.todos[index],
-            completed;
-        }
+            this.todos[index].completed = ! this.todos[index].completed;
+        },
     }
 });

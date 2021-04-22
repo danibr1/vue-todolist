@@ -45,14 +45,15 @@ body{
 
 .new-todo input {
     flex-grow: 1;
+    padding-left: 30px;
     margin-right: 20px;
-    border-bottom: 1px solid rgb(216, 216, 216);
+    border-bottom: 1px solid #f2a03d;
     transition: border 0.3s;
 }
 
 .new-todo input:hover,
 .new-todo input:focus {
-    border-color: #000;
+    border-color: #0c7be8
 }
 
 .new-todo button {
@@ -67,7 +68,7 @@ body{
 
 .new-todo button:hover,
 .new-todo button:focus {
-    background: #ccc;
+    background: #0c7be8;
 }
 
 /* TODO LIST */
@@ -78,6 +79,10 @@ body{
     box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.2) ;
 }
 
+.todos-container h2{
+    color: #f2a03d;
+}
+
 .todo {
     display: flex;
     justify-content: space-between;
@@ -85,20 +90,18 @@ body{
     padding: 10px 0;
     border-bottom: 1px solid #ccc;
 }
-
 .todo:last-child {
     border-bottom: none;
 }
 
-/* SVG SHAPES */
-.wave {
-    position: fixed;
-    bottom: 0;
-    left: 0;
+
+/* TODO COMPLETED */
+.todo .text.completed {
+    text-decoration: line-through;
 }
 
-.wave1 {
-    position: fixed;
-    bottom: -10px;
-    left: 0;
+.todo .text {
+    position: relative;
+    max-width: 90%;
+    word-wrap: break-word;
 }
